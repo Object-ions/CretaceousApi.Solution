@@ -28,9 +28,12 @@ namespace CretaceousApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Species")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("AnimalId");

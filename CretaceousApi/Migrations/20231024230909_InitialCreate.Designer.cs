@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CretaceousApi.Migrations
 {
     [DbContext(typeof(CretaceousApiContext))]
-    [Migration("20231023211612_Update")]
-    partial class Update
+    [Migration("20231024230909_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,9 +30,12 @@ namespace CretaceousApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Species")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("AnimalId");
